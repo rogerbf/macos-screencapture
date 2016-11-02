@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "latest",
+    "stage-3"
+  ],
+  "plugins": [
+    "add-module-exports"
+  ],
+  "env": {
+    "production": {
+      "ignore": [
+        "*.test.*"
+      ],
+      "comments": false
+    }
+  }
+}
