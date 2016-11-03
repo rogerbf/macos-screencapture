@@ -10,7 +10,9 @@ export default {
   windowModeCaptureScreen: [`-S`],
   format: Object.assign(
     (imageFormat = `png`) => {
-      if (typeof (imageFormat) !== `string`) throw new TypeError(`expected a string`)
+      if (typeof (imageFormat) !== `string`) {
+        throw new TypeError(`expected a string`)
+      }
       return [`-t`, imageFormat]
     },
     {
