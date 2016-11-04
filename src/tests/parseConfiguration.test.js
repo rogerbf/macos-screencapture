@@ -16,8 +16,28 @@ test(`parseConfiguration()`, assert => {
   assert.end()
 })
 
-// test(`parseConfiguration({ path })`)
-//
-// test(`parseConfiguration({ options })`)
-//
-// test(`parseConfiguration({ path, options })`)
+test(`parseConfiguration({ path })`, assert => {
+  const actual = parseConfiguration({ path: `/some/path/to/file.png` })
+  const expected = [`-x`, `-t`, `png`, `/some/path/to/file.png`]
+  assert.deepEqual(actual, expected)
+  assert.end()
+})
+
+test(`parseConfiguration({ options })`, assert => {
+  const actual = parseConfiguration({ options: [`-o`] })
+  assert.ok(actual.length === 2)
+  assert.ok(actual[0] === `-o`)
+  assert.ok(/screencapture/.test(actual[1]))
+  assert.end()
+})
+
+test(`parseConfiguration({ path, options })`, assert => {
+  const configuration = {
+    path: `/some/path/to/file.png`,
+    options: [`-o`, `-m`]
+  }
+  const actual = parseConfiguration(configuration)
+  const expected = [`-o`, `-m`, `/some/path/to/file.png`]
+  assert.deepEqual(actual, expected)
+  assert.end()
+})
