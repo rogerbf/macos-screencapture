@@ -5,7 +5,8 @@
     "src"
   ],
   "dontLoad": [
-    "dist"
+    "dist",
+    "node_modules"
   ],
   "plugins": {
     "complete_strings": {
