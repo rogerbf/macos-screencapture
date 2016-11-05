@@ -8,7 +8,7 @@ export default function parseConfiguration (userConfiguration) {
   const configuration = Object.assign(
     {
       path: join(tmpdir(), generateFilename(`png`)),
-      options: [ options.noSound, options.format() ]
+      options: [ options.noSound, options.format.default ]
     },
     userConfiguration
   )
