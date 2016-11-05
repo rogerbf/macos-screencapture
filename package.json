@@ -1,7 +1,7 @@
 {
   "name": "macos-screencapture",
-  "version": "0.0.1",
-  "description": "wrapper around the built in macOS screencapture utility",
+  "version": "1.0.0",
+  "description": "wrapper around screencapture",
   "main": "./dist/index.js",
   "scripts": {
     "test": "tape -r babel-register ./src/**/*.test.js | tap-dot",
