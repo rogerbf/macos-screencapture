@@ -23,6 +23,18 @@ test(`parseConfiguration({ path })`, assert => {
   assert.end()
 })
 
+test(`parseConfiguration({ [path] })`, assert => {
+  const actual = parseConfiguration({
+    path: [
+      `/some/path/to/file.png`,
+      `/some/other/path/to/file2.png`
+    ]
+  })
+  const expected = [`-x`, `-t`, `png`, `/some/path/to/file.png`, `/some/other/path/to/file2.png`]
+  assert.deepEqual(actual, expected)
+  assert.end()
+})
+
 test(`parseConfiguration({ options })`, assert => {
   const actual = parseConfiguration({ options: [`-o`] })
   assert.ok(actual.length === 2)
